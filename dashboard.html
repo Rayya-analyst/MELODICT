@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
+
+<div id="sidebar-overlay"></div>
+
 <aside id="sidebar">
   <div class="mb-5">
     <h1 class="brand-title mb-0">MELODICT</h1>
@@ -26,11 +29,11 @@
       <span class="material-symbols-outlined">leaderboard</span>
       Analytics
     </a>
-      <a href="/wellness_habits/wellness-habits.html">
-        <span class="material-symbols-outlined">fitness_center</span>
+    <a href="/wellness_habits/wellness-habits.html">
+      <span class="material-symbols-outlined">fitness_center</span>
       Wellness Habits
     </a>
-        <a href="/melodict_settings/settings.html">
+    <a href="/melodict_settings/settings.html">
       <span class="material-symbols-outlined">settings</span>
       Settings
     </a>
@@ -50,158 +53,182 @@
 
 <main id="main-content">
   <header id="topbar">
+    <!-- LEFT: Hamburger + Title -->
     <div class="d-flex align-items-center gap-3">
+      <!-- Hamburger button (visible on mobile only) -->
+      <button id="hamburger-btn" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <h2 class="mb-0">DASHBOARD</h2>
-        </div>
-        <div class="d-flex align-items-center gap-4">
-            <div class="search-wrapper d-none d-lg-block">
-                <input type="text" placeholder="SEARCH SYSTEM..."/>
-                <span class="material-symbols-outlined search-icon">search</span>
-            </div>
-            <div class="d-flex align-items-center gap-2">
-                <span class="material-symbols-outlined" style="cursor:pointer; padding:8px;">notifications</span>
-                <span class="material-symbols-outlined" style="cursor:pointer; padding:8px;">account_circle</span>
-            </div>
-        </div>
-    </header>
-
-<section class="p-4 p-xl-5" style="max-width: 1400px; margin: 0 auto;">
-    <div class="row g-4">
-        <div class="col-12">
-            <div id="hero-container" class="bento-card neo-shadow p-5 bg-white border border-4 border-dark">
-                <div class="row g-4 align-items-stretch">
-                    
-                    <div class="col-xl-7 d-flex flex-column justify-content-center">
-                        
-                        <div id="state-disconnected" class="text-center">
-                            <h1 class="fw-black mb-4" style="font-size: 64px;">MUSIC IS YOUR <span style="color: var(--color-primary);">MIND'S</span> MELODY.</h1>
-                            <p class="mb-5 text-muted">Synchronize your mental state with rhythm. Melodict uses biomechanical feedback to curate the perfect auditory landscape.</p>
-                            <button id="btn-connect" class="btn-start-session neo-shadow-hover" style="background-color: #FF6B6B; width: auto; padding: 20px 40px;">
-                                CONNECT WITH SPOTIFY <span class="material-symbols-outlined">arrow_forward</span>
-                            </button>
-                        </div>
-
-                        <div id="state-connected" class="d-none">
-                            <div class="pe-xl-4">
-                                <h2 class="fw-black mb-3 text-uppercase">Welcome Back, Rayya!</h2>
-                                <p class="mb-4">Sesi terakhirmu membantu meningkatkan fokus sebesar 12%. Siap untuk sesi baru?</p>
-                                
-                                <div id="session-controls" class="d-flex flex-wrap gap-3 mb-5">
-                                    <button id="btn-start-session" class="btn-start-session neo-shadow-hover" style="background-color: var(--color-tertiary-fixed); color: black; padding: 20px 40px;">
-                                        START FOCUS SESSION <span class="material-symbols-outlined">bolt</span>
-                                    </button>
-
-                                    <button id="btn-pause-session" class="btn-start-session neo-shadow-hover d-none" style="background-color: #FBE36A; color: black; padding: 20px 40px;">
-                                        PAUSE <span class="material-symbols-outlined">pause_circle</span>
-                                    </button>
-
-                                    <button id="btn-resume-session" class="btn-start-session neo-shadow-hover d-none" style="background-color: #5dd9d0; color: black; padding: 20px 40px;">
-                                        RESUME <span class="material-symbols-outlined">play_circle</span>
-                                    </button>
-
-                                    <button id="btn-end-session" class="btn-start-session neo-shadow-hover d-none" style="background-color: #FF6B6B; color: white; padding: 20px 40px;">
-                                        END SESSION <span class="material-symbols-outlined">stop_circle</span>
-                                    </button>
-                                </div>
-
-                                <div class="row g-3 border-top border-4 border-dark pt-4">
-                                    <div class="col-sm-6">
-                                        <span class="text-label d-block text-uppercase fw-bold" style="font-size: 11px; letter-spacing: 1px;">Weekly Focus</span>
-                                        <h3 class="fw-black mb-0">14.5 Hours</h3>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <span class="text-label d-block text-uppercase fw-bold" style="font-size: 11px; letter-spacing: 1px;">Top Genre</span>
-                                        <h3 class="fw-black mb-0">Lofi / Synthwave</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-5 border-start border-4 border-dark ps-xl-5 d-flex align-items-center">
-                        <div class="theta-visualizer-card w-100">
-                            <div class="d-flex justify-content-between align-items-center mb-4">
-                                <span class="fw-black" style="letter-spacing: 1px; font-size: 14px;">NOW SYNCING: THETA WAVES</span>
-                                <span class="material-symbols-outlined">bar_chart</span>
-                            </div>
-                            
-                            <div class="visualizer-container d-flex align-items-end justify-content-between" style="height: 150px;">
-                                <div class="v-bar" style="height: 40%"></div>
-                                <div class="v-bar" style="height: 60%"></div>
-                                <div class="v-bar" style="height: 80%"></div>
-                                <div class="v-bar" style="height: 50%"></div>
-                                <div class="v-bar" style="height: 90%"></div>
-                                <div class="v-bar" style="height: 30%"></div>
-                                <div class="v-bar" style="height: 70%"></div>
-                                <div class="v-bar" style="height: 85%"></div>
-                                <div class="v-bar" style="height: 45%"></div>
-                                <div class="v-bar" style="height: 75%"></div>
-                                <div class="v-bar" style="height: 60%"></div>
-                            </div>
-
-                            <div class="d-flex align-items-center gap-3 mt-5">
-                                <div class="v-play-btn p-2 border border-3 border-dark d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: white;">
-                                    <span class="material-symbols-outlined">play_arrow</span>
-                                </div>
-                                <div class="v-progress-track flex-grow-1 bg-light border border-3 border-dark" style="height: 12px;">
-                                    <div class="v-progress-fill bg-dark" style="width: 65%; height: 100%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
     </div>
-</section>
 
-<section class="p-4 p-xl-5" style="max-width: 1400px; margin: 0 auto;">
-    <div class="row g-4">
-        <div class="col-md-6">
-            <div class="bento-card neo-shadow p-4 h-100 d-flex flex-column" style="background: var(--color-secondary-fixed-dim); border: 4px solid #000;">
-                <h3 class="fw-black text-uppercase mb-3">Neuro-Curated Lists</h3>
-                <p class="mb-4">Our algorithm analyzes biometric spikes to prevent burnout before it happens.</p>
-                
-                <div class="mt-auto" style="border: 4px solid #000; overflow: hidden; background: #000;">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000" 
-                         class="w-100 d-block" 
-                         style="filter: grayscale(1) contrast(1.2); opacity: 0.8;" 
-                         alt="Feature Visual">
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="bento-card neo-shadow p-4 h-100 border border-4 border-dark" style="background: #dec651;">
-                <h3 class="fw-black text-uppercase mb-4">Quick Mood Sync</h3>
-                
-                <div class="d-flex flex-column gap-3">
-                    <button class="btn-mood d-flex align-items-center p-0 border border-4 border-dark bg-white neo-shadow-sm">
-                        <div class="bg-dark text-white p-3 d-flex align-items-center justify-content-center" style="width: 60px;">
-                            <span class="material-symbols-outlined">bolt</span>
-                        </div>
-                        <div class="ps-3 fw-bold text-uppercase">High Focus</div>
-                    </button>
-
-                    <button class="btn-mood d-flex align-items-center p-0 border border-4 border-dark bg-white neo-shadow-sm">
-                        <div class="bg-dark text-white p-3 d-flex align-items-center justify-content-center" style="width: 60px;">
-                            <span class="material-symbols-outlined">bedtime</span>
-                        </div>
-                        <div class="ps-3 fw-bold text-uppercase">Deep Rest</div>
-                    </button>
-
-                    <button class="btn-mood d-flex align-items-center p-0 border border-4 border-dark bg-white neo-shadow-sm">
-                        <div class="bg-dark text-white p-3 d-flex align-items-center justify-content-center" style="width: 60px;">
-                            <span class="material-symbols-outlined">fitness_center</span>
-                        </div>
-                        <div class="ps-3 fw-bold text-uppercase">Pure Energy</div>
-                    </button>
-                </div>
-            </div>
-        </div>
+    <!-- RIGHT: Search + Icons -->
+    <div class="d-flex align-items-center gap-3">
+      <div class="search-wrapper d-none d-lg-block">
+        <input type="text" placeholder="SEARCH SYSTEM..."/>
+        <span class="material-symbols-outlined search-icon">search</span>
+      </div>
+      <div class="d-flex align-items-center gap-1">
+        <span class="material-symbols-outlined" style="cursor:pointer; padding:8px;">notifications</span>
+        <span class="material-symbols-outlined" style="cursor:pointer; padding:8px;">account_circle</span>
+      </div>
     </div>
-</section>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="p-4 p-xl-5" style="max-width: 1400px; margin: 0 auto;">
+    <div class="row g-4">
+      <div class="col-12">
+        <div id="hero-container" class="bento-card neo-shadow p-4 p-md-5 bg-white border border-4 border-dark">
+          <div class="row g-4 align-items-stretch">
+
+            <!-- Left: Text & Controls -->
+            <div class="col-12 col-xl-7 d-flex flex-column justify-content-center">
+
+              <div id="state-disconnected" class="text-center">
+                <h1 class="fw-black mb-4" style="font-size: clamp(32px, 6vw, 64px);">
+                  MUSIC IS YOUR <span style="color: var(--color-primary);">MIND'S</span> MELODY.
+                </h1>
+                <p class="mb-5 text-muted">Synchronize your mental state with rhythm. Melodict uses biomechanical feedback to curate the perfect auditory landscape.</p>
+                <button id="btn-connect" class="btn-start-session neo-shadow-hover" style="background-color: #FF6B6B; width: auto; padding: 16px 32px; font-size: clamp(16px, 3vw, 24px);">
+                  CONNECT WITH SPOTIFY <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+              </div>
+
+              <div id="state-connected" class="d-none">
+                <div class="pe-xl-4">
+                  <h2 class="fw-black mb-3 text-uppercase" style="font-size: clamp(22px, 4vw, 36px);">Welcome Back, Rayya!</h2>
+                  <p class="mb-4">Your last session helped increase focus by 12%. Ready for a new session?</p>
+
+                  <div id="active-timer-container" class="mt-3 d-none">
+                    <span class="badge bg-dark p-2 fs-5">
+                      <span class="material-symbols-outlined align-middle">timer</span> 
+                      <span id="live-timer">00:00</span>
+                    </span>
+                  </div>
+
+                  <div id="session-controls" class="d-flex flex-wrap gap-3 mb-4">
+                    <button id="btn-start-session" class="btn-start-session neo-shadow-hover" style="background-color: var(--color-tertiary-fixed); color: black; padding: 16px 28px; font-size: clamp(14px, 2.5vw, 24px);">
+                      START FOCUS SESSION <span class="material-symbols-outlined">bolt</span>
+                    </button>
+                    <button id="btn-pause-session" class="btn-start-session neo-shadow-hover d-none" style="background-color: #FBE36A; color: black; padding: 16px 28px;">
+                      PAUSE <span class="material-symbols-outlined">pause_circle</span>
+                    </button>
+                    <button id="btn-resume-session" class="btn-start-session neo-shadow-hover d-none" style="background-color: #5dd9d0; color: black; padding: 16px 28px;">
+                      RESUME <span class="material-symbols-outlined">play_circle</span>
+                    </button>
+                    <button id="btn-end-session" class="btn-start-session neo-shadow-hover d-none" style="background-color: #FF6B6B; color: white; padding: 16px 28px;">
+                      END SESSION <span class="material-symbols-outlined">stop_circle</span>
+                    </button>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-6">
+                      <span class="text-label d-block text-uppercase fw-bold" style="font-size: 11px; letter-spacing: 1px;">Last Session</span>
+                      <h3 id="last-session-time" class="fw-black mb-0">0 MIN</h3>
+                    </div>
+                    <div class="col-6">
+                      <span class="text-label d-block text-uppercase fw-bold" style="font-size: 11px; letter-spacing: 1px;">Top Genre</span>
+                      <h3 class="fw-black mb-0">Lofi / Synthwave</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Theta Visualizer -->
+            <div class="col-12 col-xl-5 border-start border-4 border-dark ps-xl-5 d-flex align-items-center">
+              <div class="theta-visualizer-card w-100">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <span class="fw-black" style="letter-spacing: 1px; font-size: 14px;">NOW SYNCING: THETA WAVES</span>
+                  <span class="material-symbols-outlined">bar_chart</span>
+                </div>
+
+                <div class="visualizer-container d-flex align-items-end justify-content-between" style="height: 150px;">
+                  <div class="v-bar" style="height: 40%"></div>
+                  <div class="v-bar" style="height: 60%"></div>
+                  <div class="v-bar" style="height: 80%"></div>
+                  <div class="v-bar" style="height: 50%"></div>
+                  <div class="v-bar" style="height: 90%"></div>
+                  <div class="v-bar" style="height: 30%"></div>
+                  <div class="v-bar" style="height: 70%"></div>
+                  <div class="v-bar" style="height: 85%"></div>
+                  <div class="v-bar" style="height: 45%"></div>
+                  <div class="v-bar" style="height: 75%"></div>
+                  <div class="v-bar" style="height: 60%"></div>
+                </div>
+
+                <div class="d-flex align-items-center gap-3 mt-4">
+                  <div class="v-play-btn p-2 border border-3 border-dark d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: white; flex-shrink: 0;">
+                    <span class="material-symbols-outlined">play_arrow</span>
+                  </div>
+                  <div class="v-progress-track flex-grow-1 bg-light border border-3 border-dark" style="height: 12px;">
+                    <div class="v-progress-fill bg-dark" style="width: 65%; height: 100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS SECTION -->
+  <section class="p-4 p-xl-5" style="max-width: 1400px; margin: 0 auto;">
+    <div class="row g-4">
+      <div class="col-12 col-md-8">
+        <div class="bento-card neo-shadow p-4 h-100 d-flex flex-column" style="background: var(--color-secondary-fixed-dim); border: 4px solid #000;">
+          <div class="d-flex justify-content-between flex-wrap gap-2">
+            <h3 class="fw-black text-uppercase mb-3">Data Intelligence</h3>
+            <span class="tag-dark">BETA v.1.0</span>
+          </div>
+          <p id="ai-insight-text" class="fs-5 fw-bold" style="line-height: 1.4;">
+            Waiting for session data... <br>
+            <span class="text-muted fw-normal" style="font-size: 0.9rem;">Log your first session to see behavioral patterns.</span>
+          </p>
+          
+          <div class="mt-auto d-flex gap-2 flex-wrap">
+            <div class="p-3 border border-3 border-dark bg-white flex-grow-1">
+              <small class="d-block text-uppercase fw-bold text-muted" style="font-size: 10px;">Optimal BPM</small>
+              <span id="opt-bpm" class="fw-black fs-4">--</span>
+            </div>
+            <div class="p-3 border border-3 border-dark bg-white flex-grow-1">
+              <small class="d-block text-uppercase fw-bold text-muted" style="font-size: 10px;">Focus Consistency</small>
+              <span id="focus-cons" class="fw-black fs-4">--%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="bento-card neo-shadow p-4 h-100 border border-4 border-dark" style="background: #dec651;">
+          <h3 class="fw-black text-uppercase mb-4">Quick Stats</h3>
+          
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-center p-3 border border-4 border-dark bg-white">
+              <span class="material-symbols-outlined me-3">local_fire_department</span>
+              <div>
+                <small class="d-block fw-bold text-muted" style="font-size: 10px;">CURRENT STREAK</small>
+                <span class="fw-black">5 DAYS FIRE!</span>
+              </div>
+            </div>
+            
+            <div class="d-flex align-items-center p-3 border border-4 border-dark bg-white">
+              <span class="material-symbols-outlined me-3">history</span>
+              <div>
+                <small class="d-block fw-bold text-muted" style="font-size: 10px;">LAST LOGGED BPM</small>
+                <span id="last-bpm-stat" class="fw-black">None</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer id="site-footer">
     <h3 class="mb-0" style="font-size:24px; color: var(--color-background);">MELODICT</h3>
@@ -214,20 +241,23 @@
   </footer>
 </main>
 
+<!-- PLAYER BAR -->
 <div id="player-bar">
-  <div class="d-flex align-items-center gap-3" style="width:25%;">
-    <div style="width:64px; height:64px; border: 2px solid var(--color-on-background); overflow:hidden; flex-shrink:0;">
+  <!-- Left: Track Info -->
+  <div class="d-flex align-items-center gap-3 player-left" style="width:25%; min-width: 0;">
+    <div class="player-track-img" style="width:64px; height:64px; border: 2px solid var(--color-on-background); overflow:hidden; flex-shrink:0;">
       <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkSyuiMEp80vuuO9QToKrkuQSnEb8YlUjPqgRfX8t4054OY11EehC2Z0b8FGeiD-s4MRNuz9EBha9DeZxC9aE0qWfKWQSHnRtsoKK01q031jp_XK63Ncn9StIuwzbBvphW-2kgN_5eC-Zw36fmtzKsCDcNvGUK77ogeLioG40MlQ-b_SS2HDy8XoCtEbWylCC0VTyoEd5YoM-4TVOgKiJ-wEyDVjXfDLMe9MGH1JdUTsiDzA5DvyZi_eP7hwGldBr_JDS1KIZW1nA-"
            alt="Now Playing" style="width:100%; height:100%; object-fit:cover;"/>
     </div>
-    <div>
-      <h5 class="mb-0 text-uppercase" style="font-size:18px; font-weight:600; line-height:1; font-family:'Public Sans',sans-serif;">System Overload</h5>
-      <p class="text-label mb-0" style="opacity:0.6;">NEO-PUNK COLLECTIVE</p>
+    <div class="player-track-text" style="min-width:0; overflow:hidden;">
+      <h5 class="mb-0 text-uppercase text-truncate" style="font-size:16px; font-weight:600; line-height:1; font-family:'Public Sans',sans-serif;">System Overload</h5>
+      <p class="text-label mb-0 text-truncate" style="opacity:0.6; font-size: 11px;">NEO-PUNK COLLECTIVE</p>
     </div>
   </div>
 
-  <div class="d-flex flex-column align-items-center gap-2" style="width:50%;">
-    <div class="d-flex align-items-center gap-4">
+  <!-- Center: Controls + Progress -->
+  <div class="d-flex flex-column align-items-center gap-2 player-center" style="width:50%; flex-shrink: 0;">
+    <div class="d-flex align-items-center gap-3">
       <span class="material-symbols-outlined" style="cursor:pointer; font-size:24px; transition: color 0.2s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color=''">skip_previous</span>
       <button class="play-btn neo-shadow-hover neo-shadow-active">
         <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1; font-size:24px;">play_arrow</span>
@@ -239,17 +269,54 @@
     </div>
   </div>
 
-  <div class="d-flex align-items-center justify-content-end gap-3" style="width:25%;">
+  <!-- Right: Volume -->
+  <div class="volume-section d-flex align-items-center justify-content-end gap-3" style="width:25%;">
     <span class="material-symbols-outlined">volume_up</span>
     <div style="width:96px; height:8px; background-color: var(--color-surface-container-highest); border: 1px solid var(--color-on-background);">
       <div style="height:100%; width:75%; background-color: var(--color-on-background);"></div>
     </div>
-    <span class="material-symbols-outlined">fullscreen</span>
+    <span class="material-symbols-outlined d-none d-md-block">fullscreen</span>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/script.js"></script>
+
+<!-- Hamburger Toggle Script -->
+<script>
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+
+  function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  hamburgerBtn.addEventListener('click', () => {
+    if (sidebar.classList.contains('open')) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  });
+
+  overlay.addEventListener('click', closeSidebar);
+
+  // Close sidebar when a nav link is clicked on mobile
+  document.querySelectorAll('#sidebar nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 992) closeSidebar();
+    });
+  });
+</script>
 
 </body>
 </html>
