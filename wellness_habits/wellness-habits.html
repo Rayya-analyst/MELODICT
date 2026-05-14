@@ -13,6 +13,10 @@
 </head>
 
 <body>
+
+  <div id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+
   <aside id="sidebar">
     <div class="mb-5">
       <h1 class="brand-title mb-0">MELODICT</h1>
@@ -38,32 +42,30 @@
       </a>
     </nav>
 
-      <div class="mt-auto">
-
-    <div class="d-flex flex-column gap-2 pt-3"
-         style="border-top:1px solid rgba(27,27,27,0.15)">
-
-      <a href="#"
-         class="d-flex align-items-center gap-2 text-label text-decoration-none"
-         style="color:var(--color-on-background)">
-        <span class="material-symbols-outlined">help</span>
-        Support
-      </a>
-
-      <a href="#"
-         class="d-flex align-items-center gap-2 text-label text-decoration-none"
-         style="color:var(--color-error)">
-        <span class="material-symbols-outlined">logout</span>
-        Logout
-      </a>
-
+    <div class="mt-auto">
+      <div class="d-flex flex-column gap-2 pt-3" style="border-top:1px solid rgba(27,27,27,0.15)">
+        <a href="#" class="d-flex align-items-center gap-2 text-label text-decoration-none" style="color:var(--color-on-background)">
+          <span class="material-symbols-outlined">help</span>
+          Support
+        </a>
+        <a href="/index.html" class="d-flex align-items-center gap-2 text-label text-decoration-none" style="color:var(--color-error)">
+          <span class="material-symbols-outlined">logout</span>
+          Logout
+        </a>
+      </div>
     </div>
-  </div>
-</aside>
+  </aside>
 
   <main id="main-content">
+
     <header id="topbar">
       <div class="d-flex align-items-center gap-3">
+
+        <button class="hamburger-btn d-lg-none" id="hamburger-btn" onclick="toggleSidebar()" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <h2 class="mb-0">WELLNESS HUB</h2>
       </div>
       <div class="d-flex align-items-center gap-4">
@@ -75,10 +77,10 @@
       </div>
     </header>
 
-    <section class="p-4 p-xl-5">
+    <section class="p-3 p-md-4 p-xl-5">
       <div class="container-fluid px-0">
         <div class="row g-4">
-          
+
           <div class="col-12 col-lg-5">
             <div class="bento-card neo-shadow h-100">
               <h3 class="text-uppercase mb-4 fw-black">
@@ -109,26 +111,23 @@
                     <input type="checkbox" id="study" class="habit-check"/>
                   </div>
                   <div class="habit-row">
-                    <label class="fw-bold mb-0">No Social Media (>1h)</label>
+                    <label class="fw-bold mb-0">No Social Media (&gt;1h)</label>
                     <input type="checkbox" id="digital" class="habit-check"/>
                   </div>
                 </div>
 
-                <div class="d-flex flex-column gap-2">
-    </div>
-
-<div class="mt-4 pt-3" style="border-top: 4px solid var(--color-on-background);">
-    <label class="text-label mb-2 d-block fw-black" style="font-size: 0.9rem;">CURRENT SONG BPM</label>
-    <div class="input-group">
-        <span class="input-group-text bg-dark text-white border-dark neo-shadow-sm" style="border-radius: 0;">
-            <span class="material-symbols-outlined">speed</span>
-        </span>
-        <input type="number" id="bpm-input" class="form-control border-4 border-dark neo-shadow-sm" 
-               placeholder="BPM (e.g. 140)" value="120" 
-               style="border-radius: 0; font-family: 'Space Grotesk', sans-serif; font-weight: bold;">
-    </div>
-    <small class="text-muted d-block mt-2" style="font-size: 10px;">*Check your Spotify Now Playing for BPM</small>
-</div>
+                <div class="mt-4 pt-3" style="border-top: 4px solid var(--color-on-background);">
+                  <label class="text-label mb-2 d-block fw-black" style="font-size: 0.9rem;">CURRENT SONG BPM</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-dark text-white border-dark neo-shadow-sm" style="border-radius: 0;">
+                      <span class="material-symbols-outlined">speed</span>
+                    </span>
+                    <input type="number" id="bpm-input" class="form-control border-4 border-dark neo-shadow-sm"
+                      placeholder="BPM (e.g. 140)" value="120"
+                      style="border-radius: 0; font-family: 'Space Grotesk', sans-serif; font-weight: bold;">
+                  </div>
+                  <small class="text-muted d-block mt-2" style="font-size: 10px;">*Check your Spotify Now Playing for BPM</small>
+                </div>
 
                 <button type="submit" class="btn-dark-neo neo-shadow-hover w-100 py-3 mt-2">LOG METRICS</button>
               </form>
@@ -138,29 +137,29 @@
           <div class="col-12 col-lg-7">
             <div class="bento-card neo-shadow h-100" style="background-color: var(--color-tertiary-fixed);">
               <div class="d-flex justify-content-between align-items-start mb-4">
-                <h3 class="text-uppercase mb-0 fw-black" style="font-size:32px;">Daily Score</h3>
+                <h3 class="text-uppercase mb-0 fw-black" style="font-size:clamp(20px,4vw,32px);">Daily Score</h3>
                 <span class="material-symbols-outlined" style="font-size: 40px;">analytics</span>
               </div>
-              
+
               <div class="row g-3">
-                  <div class="col-md-6">
-                      <div class="bg-white border border-4 border-dark p-3 neo-shadow-sm h-100">
-                          <h6 class="text-label mb-1" style="font-size:12px;">Streak Status</h6>
-                          <h4 class="fw-black mb-0">5 DAYS FIRE! <i class="bi bi-fire"></i></h4>
-                      </div>
+                <div class="col-6">
+                  <div class="bg-white border border-4 border-dark p-3 neo-shadow-sm h-100">
+                    <h6 class="text-label mb-1" style="font-size:12px;">Streak Status</h6>
+                    <h4 class="fw-black mb-0" style="font-size:clamp(14px,2.5vw,20px);">5 DAYS FIRE! <i class="bi bi-fire"></i></h4>
                   </div>
-                  <div class="col-md-6">
-                      <div class="bg-white border border-4 border-dark p-3 neo-shadow-sm h-100">
-                          <h6 class="text-label mb-1" style="font-size:12px;">AI Detection</h6>
-                          <p class="mb-0 small fw-bold">Mood 'Energetic' berkorelasi dengan genre 'Neo-Punk'.</p>
-                      </div>
+                </div>
+                <div class="col-6">
+                  <div class="bg-white border border-4 border-dark p-3 neo-shadow-sm h-100">
+                    <h6 class="text-label mb-1" style="font-size:12px;">AI Detection</h6>
+                    <p class="mb-0 small fw-bold">Mood 'Energetic' berkorelasi dengan genre 'Neo-Punk'.</p>
                   </div>
+                </div>
               </div>
 
               <div class="mt-auto pt-5">
                 <div class="d-flex justify-content-between align-items-end mb-2">
-                  <span class="fw-black text-uppercase">Wellness Performance</span>
-                  <span class="display-5 fw-black" id="score-text">0%</span>
+                  <span class="fw-black text-uppercase" style="font-size:clamp(12px,2vw,16px);">Wellness Performance</span>
+                  <span class="fw-black" id="score-text" style="font-size:clamp(28px,5vw,56px);">0%</span>
                 </div>
                 <div class="progress-track">
                   <div id="score-fill" class="progress-fill-animate" style="width:0%; height:100%; background-color: var(--color-on-background);"></div>
@@ -171,100 +170,99 @@
 
           <div class="col-12 col-lg-8">
             <div class="bento-card neo-shadow h-100">
-              <div class="d-flex justify-content-between align-items-center mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
                 <div>
-                  <h3 class="text-uppercase mb-1">Rhythmic Correlation</h3>
+                  <h3 class="text-uppercase mb-1" style="font-size:clamp(16px,3vw,22px);">Rhythmic Correlation</h3>
                   <p class="text-label opacity-75 mb-0">Music BPM vs. Deep Work Focus Level</p>
                 </div>
                 <div class="tag-dark">DATA ANALYST VIEW</div>
               </div>
-              
+
               <div class="chart-container">
-                  <canvas id="correlationChart"></canvas>
+                <canvas id="correlationChart"></canvas>
               </div>
 
               <div class="bg-white border border-4 border-dark p-3 mt-4 d-flex align-items-center gap-3">
-                  <span class="material-symbols-outlined" style="font-size:32px; color: var(--color-secondary);">auto_awesome</span>
-                  <div>
-                      <h6 class="mb-0 fw-bold">AI INSIGHT:</h6>
-                      <p class="mb-0 small" id="ai-insight">Waiting for daily data logs to calculate correlation...</p>
-                  </div>
+                <span class="material-symbols-outlined flex-shrink-0" style="font-size:32px; color: var(--color-secondary);">auto_awesome</span>
+                <div>
+                  <h6 class="mb-0 fw-bold">AI INSIGHT:</h6>
+                  <p class="mb-0 small" id="ai-insight">Waiting for daily data logs to calculate correlation...</p>
+                </div>
               </div>
             </div>
           </div>
-          
 
           <div class="col-12 col-lg-4">
             <div class="bento-card neo-shadow h-100 bg-white">
-               <h3 class="text-uppercase mb-4 fw-black" style="font-size:20px;">AI Recommended</h3>
-               
-               <div class="text-center py-4 border border-4 border-dark mb-4" style="background-color: var(--color-surface-container);">
-                  <div id="playlist-art" style="width:120px; height:120px; background: var(--color-on-background); margin: 0 auto; display:flex; align-items:center; justify-content:center; color: var(--color-background); border: 4px solid var(--color-on-background);" class="mb-3">
-                      <span class="material-symbols-outlined" style="font-size:60px;">music_note</span>
-                  </div>
-                  <h5 class="fw-black text-uppercase mb-1" id="suggested-title">Ready to Sync?</h5>
-                  <p class="text-muted small px-3">Playlist will change automatically based on your wellness score.</p>
-               </div>
+              <h3 class="text-uppercase mb-4 fw-black" style="font-size:20px;">AI Recommended</h3>
 
-               <button class="btn-dark-neo neo-shadow-hover w-100 py-3" style="background-color: #1DB954; color: white;">
-                  <div class="d-flex align-items-center justify-content-center gap-2">
-                      <span class="material-symbols-outlined">play_circle</span>
-                      OPEN IN SPOTIFY
-                  </div>
-               </button>
+              <div class="text-center py-4 border border-4 border-dark mb-4" style="background-color: var(--color-surface-container);">
+                <div id="playlist-art" style="width:120px; height:120px; background: var(--color-on-background); margin: 0 auto; display:flex; align-items:center; justify-content:center; color: var(--color-background); border: 4px solid var(--color-on-background);" class="mb-3">
+                  <span class="material-symbols-outlined" style="font-size:60px;">music_note</span>
+                </div>
+                <h5 class="fw-black text-uppercase mb-1" id="suggested-title">Ready to Sync?</h5>
+                <p class="text-muted small px-3">Playlist will change automatically based on your wellness score.</p>
+              </div>
+
+              <button class="btn-dark-neo neo-shadow-hover w-100 py-3" style="background-color: #1DB954; color: white; border-color: #1DB954;">
+                <div class="d-flex align-items-center justify-content-center gap-2">
+                  <span class="material-symbols-outlined">play_circle</span>
+                  OPEN IN SPOTIFY
+                </div>
+              </button>
             </div>
           </div>
 
         </div>
       </div>
-
-      
     </section>
 
-      <footer id="site-footer">
-    <h3 class="mb-0" style="font-size:24px; color: var(--color-background);">MELODICT</h3>
-    <span class="text-label" style="font-size:12px;">© 2026 MELODICT. STAY LOUD. STAY GROUNDED.</span>
-    <div class="d-flex gap-4">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">API</a>
-    </div>
-  </footer>
+    <footer id="site-footer">
+      <h3 class="mb-0" style="font-size:clamp(16px,3vw,24px); color: var(--color-background);">MELODICT</h3>
+      <span class="text-label" style="font-size:12px;">© 2026 MELODICT. STAY LOUD. STAY GROUNDED.</span>
+      <div class="d-flex gap-4">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">API</a>
+      </div>
+    </footer>
+
+  </main>
 
   <div id="player-bar">
-  <div class="d-flex align-items-center gap-3" style="width:25%;">
-    <div style="width:64px; height:64px; border: 2px solid var(--color-on-background); overflow:hidden; flex-shrink:0;">
-      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkSyuiMEp80vuuO9QToKrkuQSnEb8YlUjPqgRfX8t4054OY11EehC2Z0b8FGeiD-s4MRNuz9EBha9DeZxC9aE0qWfKWQSHnRtsoKK01q031jp_XK63Ncn9StIuwzbBvphW-2kgN_5eC-Zw36fmtzKsCDcNvGUK77ogeLioG40MlQ-b_SS2HDy8XoCtEbWylCC0VTyoEd5YoM-4TVOgKiJ-wEyDVjXfDLMe9MGH1JdUTsiDzA5DvyZi_eP7hwGldBr_JDS1KIZW1nA-"
-           alt="Now Playing" style="width:100%; height:100%; object-fit:cover;"/>
+    <div class="player-track-info">
+      <div class="player-art">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkSyuiMEp80vuuO9QToKrkuQSnEb8YlUjPqgRfX8t4054OY11EehC2Z0b8FGeiD-s4MRNuz9EBha9DeZxC9aE0qWfKWQSHnRtsoKK01q031jp_XK63Ncn9StIuwzbBvphW-2kgN_5eC-Zw36fmtzKsCDcNvGUK77ogeLioG40MlQ-b_SS2HDy8XoCtEbWylCC0VTyoEd5YoM-4TVOgKiJ-wEyDVjXfDLMe9MGH1JdUTsiDzA5DvyZi_eP7hwGldBr_JDS1KIZW1nA-"
+             alt="Now Playing"/>
+      </div>
+      <div class="player-meta">
+        <h5 class="mb-0 text-uppercase" style="font-size:clamp(12px,2vw,18px); font-weight:600; line-height:1; font-family:'Public Sans',sans-serif;">System Overload</h5>
+        <p class="text-label mb-0" style="opacity:0.6; font-size:clamp(9px,1.2vw,12px);">NEO-PUNK COLLECTIVE</p>
+      </div>
     </div>
-    <div>
-      <h5 class="mb-0 text-uppercase" style="font-size:18px; font-weight:600; line-height:1; font-family:'Public Sans',sans-serif;">System Overload</h5>
-      <p class="text-label mb-0" style="opacity:0.6;">NEO-PUNK COLLECTIVE</p>
+
+    <div class="player-controls">
+      <div class="d-flex align-items-center gap-3 gap-md-4">
+        <span class="material-symbols-outlined player-icon">skip_previous</span>
+        <button class="play-btn neo-shadow-hover neo-shadow-active">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1; font-size:24px;">play_arrow</span>
+        </button>
+        <span class="material-symbols-outlined player-icon">skip_next</span>
+      </div>
+      <div class="progress-track mt-2">
+        <div class="progress-fill" style="width:33%;"></div>
+      </div>
+    </div>
+
+    <div class="player-volume d-none d-md-flex">
+      <span class="material-symbols-outlined">volume_up</span>
+      <div class="volume-track">
+        <div class="volume-fill"></div>
+      </div>
+      <span class="material-symbols-outlined">fullscreen</span>
     </div>
   </div>
 
-  <div class="d-flex flex-column align-items-center gap-2" style="width:50%;">
-    <div class="d-flex align-items-center gap-4">
-      <span class="material-symbols-outlined" style="cursor:pointer; font-size:24px; transition: color 0.2s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color=''">skip_previous</span>
-      <button class="play-btn neo-shadow-hover neo-shadow-active">
-        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1; font-size:24px;">play_arrow</span>
-      </button>
-      <span class="material-symbols-outlined" style="cursor:pointer; font-size:24px; transition: color 0.2s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color=''">skip_next</span>
-    </div>
-    <div class="progress-track">
-      <div class="progress-fill" style="width:33%;"></div>
-    </div>
-  </div>
-
-  <div class="d-flex align-items-center justify-content-end gap-3" style="width:25%;">
-    <span class="material-symbols-outlined">volume_up</span>
-    <div style="width:96px; height:8px; background-color: var(--color-surface-container-highest); border: 1px solid var(--color-on-background);">
-      <div style="height:100%; width:75%; background-color: var(--color-on-background);"></div>
-    </div>
-    <span class="material-symbols-outlined">fullscreen</span>
-  </div>
-</div>
-  </main>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="/wellness-script.js"></script>
 </body>

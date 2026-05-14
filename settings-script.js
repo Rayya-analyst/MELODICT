@@ -4,7 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const timelineContainer = document.getElementById('timeline-container');
     const addBtn = document.getElementById('add-slot-btn');
     const saveScheduleBtn = document.getElementById('save-schedule-btn');
-    
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    const closeBtn = document.getElementById('sidebar-close-btn');
+    const syncToggle = document.getElementById('sync-toggle');
+
     let isApiSynced = true;
 
     function handleApiToggle() {
@@ -18,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             isApiSynced = !isApiSynced;
 
             if (isApiSynced) {
-                // State Active (Hijau)
+
                 circle.style.left = 'auto';
                 circle.style.right = '2px';
                 toggleBtn.style.background = '#1DB954'; 
@@ -26,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log("[Melodict] API Sync Enabled");
                 checkCurrentTime();
             } else {
-                // State Inactive (Abu-abu)
+
                 circle.style.right = 'auto';
                 circle.style.left = '2px';
                 toggleBtn.style.background = '#ccc';
@@ -100,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </select>
             </div>
             <div class="col-md-2">
-                <button class="btn-dark-neo w-100 py-2 btn-remove" style="background: #ff6b6b; color: white;">X</button>
+                <button type="button" class="btn-dark-neo w-100 py-2 btn-remove" style="background: #ff6b6b; color: white;">X</button>
             </div>
         `;
 
@@ -135,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
             saveScheduleBtn.style.background = ""; 
         }, 2000);
 
-        checkCurrentTime(); // Langsung cek jadwal setelah simpan
+        checkCurrentTime();
     }
 
     function loadSavedTimeline() {
@@ -159,9 +164,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentTask = savedData.find(item => currentTime >= item.start && currentTime <= item.end);
 
         if (currentTask) {
-            console.log(`[Melodict] Mode Aktif Sekarang: ${currentTask.mode} untuk ${currentTask.activity}`);
-            // Di sini kamu bisa tambahkan kode untuk mengubah warna tema dashboard sesuai mode
+            console.log(`[Melodict] Mode Aktif Sekarang: ${currentTask.preset} untuk ${currentTask.activity}`);
         }
+    }
+
+    function openSidebar() {
+        if (!sidebar || !overlay || !hamburgerBtn) return;
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+        if (!sidebar || !overlay || !hamburgerBtn) return;
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
     }
 
     handleApiToggle();
@@ -169,8 +189,21 @@ document.addEventListener('DOMContentLoaded', () => {
     loadSavedTimeline();
 
     if (profileForm) profileForm.addEventListener('submit', saveProfileData);
-    if (addBtn) addBtn.addEventListener('click', () => timelineContainer.appendChild(createRow()));
+    if (addBtn && timelineContainer) addBtn.addEventListener('click', () => timelineContainer.appendChild(createRow()));
     if (saveScheduleBtn) saveScheduleBtn.addEventListener('click', saveAllTimeline);
+    if (hamburgerBtn) hamburgerBtn.addEventListener('click', openSidebar);
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+    if (overlay) overlay.addEventListener('click', closeSidebar);
+
+    document.querySelectorAll('#sidebar nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 992) closeSidebar();
+      });
+    });
+
+    if (syncToggle) syncToggle.addEventListener('click', () => {
+      syncToggle.classList.toggle('off');
+    });
 
     setInterval(checkCurrentTime, 60000);
 });
