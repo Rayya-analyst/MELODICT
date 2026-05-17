@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
     if (overlay) overlay.addEventListener('click', closeSidebar);
 
-    // REAL-TIME CROSS-TAB SYNCHRONIZATION
     window.addEventListener('storage', (e) => {
         if (e.key === 'melodict_streak') {
             const dashboardStreak = document.getElementById('dashboard-streak-display');
